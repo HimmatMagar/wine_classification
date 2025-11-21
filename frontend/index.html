@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #fdf8f6; }
+        .wine-btn { background-color: #722f37; }
+        .wine-btn:hover { background-color: #581e25; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 p-6">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Header -->
+        <div class="bg-[#722f37] p-6 text-center">
+            <h1 class="text-3xl font-bold text-white tracking-wide">🍷 Vinno Predictor</h1>
+            <p class="text-red-100 mt-2">Machine Learning Quality Assessment</p>
+        </div>
+
+        <form id="predictionForm" class="p-8 space-y-8">
+            
+            <!-- Section 1: Main Characteristics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Wine Type -->
+                <div class="flex flex-col">
+                    <label class="font-semibold text-sm mb-2 text-gray-600">Wine Type</label>
+                    <select name="wine_type" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 outline-none">
+                        <option value="0">Red Wine</option>
+                        <option value="1">White Wine</option>
+                    </select>
+                </div>
+
+                <!-- Alcohol -->
+                <div class="flex flex-col md:col-span-2">
+                    <label class="font-semibold text-sm mb-2 text-gray-600">Alcohol %</label>
+                    <input type="range" min="8" max="15" step="0.1" class="w-full accent-[#722f37]" oninput="this.nextElementSibling.value = this.value">
+                    <output class="text-right text-sm font-bold text-[#722f37]">11.5</output>
+                </div>
+            </div>
+
+            <!-- Section 2: Chemical Properties -->
+            <div class="border-t border-gray-100 pt-6">
+                <h3 class="text-lg font-bold text-gray-700 mb-4">🧪 Chemical Profile</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Fixed Acidity</label>
+                        <input type="number" step="0.1" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="7.0">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Volatile Acidity</label>
+                        <input type="number" step="0.01" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="0.3">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Citric Acid</label>
+                        <input type="number" step="0.01" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="0.30">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Residual Sugar</label>
+                        <input type="number" step="0.1" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="2.0">
+                    </div>
+                    
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Chlorides</label>
+                        <input type="number" step="0.001" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="0.05">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Free SO2</label>
+                        <input type="number" step="1" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="30">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Total SO2</label>
+                        <input type="number" step="1" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="100">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase font-bold text-gray-400">Density</label>
+                        <input type="number" step="0.0001" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="0.995">
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label class="text-xs uppercase font-bold text-gray-400">pH Level</label>
+                        <input type="number" step="0.01" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="3.2">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs uppercase font-bold text-gray-400">Sulphates</label>
+                        <input type="number" step="0.01" class="w-full mt-1 p-2 bg-gray-50 border rounded" placeholder="0.60">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <button type="submit" class="wine-btn w-full text-white font-bold py-4 rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                GET QUALITY
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
